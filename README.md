@@ -2,13 +2,13 @@
 
 Hi There . . . 
 
-Here Is a sample documentation For what the project contain .
+Here Is a sample documentation For what the project contains .
 
-* Project Build using spring boot Framework .
+* Project Build using java 17 & spring boot Framework .
 * Contains one POST RESTful API For validate and Log Customers Deals .
 * uses spring date , JPA & Hibernate to interacted with sql server Database For save Customer Deal .
-* containes Integration test with maultiple cases for test The API .
-* uses jococo plugin for code coverage . 
+* contains Integration test with multiple cases for test The API .
+* uses jacoco plugin for code coverage . 
 * contain compose file , docker file for build and Run Application .
 
 

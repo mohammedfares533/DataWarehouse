@@ -1,0 +1,33 @@
+version: "3.8"
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - $SQL_SERVER_DB_LOCAL_PORT:$SQL_SERVER_DB_LOCAL_PORT
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Standard
+      - SA_PASSWORD=P@ssw0rd
+      - MSSQL_AGENT_ENABLED=true
+  app:
+    depends_on:
+      - sqlserver
+    build: ./DataWarehouse
+    restart: on-failure
+    env_file: ./.env
+    ports:
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:sqlserver://sqlserver:$SQL_SERVER_DB_DOCKER_PORT/$SQL_SERVER_DB_DATABASE",
+        "spring.datasource.username" : "$SQL_SERVER_DB_USER",
+        "spring.datasource.password" : "$SQL_SERVER_DB_ROOT_PASSWORD",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.SQLServer2012Dialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+volumes:
+  db:

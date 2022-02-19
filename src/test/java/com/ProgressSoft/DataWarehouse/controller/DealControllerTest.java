@@ -50,13 +50,13 @@ class DealControllerTest extends DataWarehouseApplicationTests {
                 .andReturn();
 
 
-//        // InValid Test Case For Save Customer Deal with invalid Currency Code
-//        mockMvc.perform(MockMvcRequestBuilders.post(Endpoint.CREATE_DEAL_ENDPOINT.getUri())
-//                        .content(asJsonString(DataBeanProvider.InValidTestCaseInvalidDealCurrencyCode()))
-//                        .contentType(MediaType.APPLICATION_JSON)
-//                        .accept(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isBadRequest())
-//                .andReturn();
+        // InValid Test Case For Save Customer Deal with invalid Currency Code
+        mockMvc.perform(MockMvcRequestBuilders.post(Endpoint.CREATE_DEAL_ENDPOINT.getUri())
+                        .content(asJsonString(DataBeanProvider.InValidTestCaseInvalidDealCurrencyCode()))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isBadRequest())
+                .andReturn();
     }
 
 

@@ -9,8 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ProgressSoft</groupId>
+	<packaging>jar</packaging>
 	<artifactId>DataWarehouse</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>DataWarehouse</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -112,11 +113,6 @@
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.9.0.2155</version>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>
